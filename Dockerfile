@@ -28,5 +28,5 @@ RUN python -m pip install ecdsa
 
 RUN arduino-cli core install Moteino:samd
 
-RUN getent passwd 1001
+USER root
 
