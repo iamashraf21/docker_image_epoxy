@@ -7,6 +7,8 @@ RUN apt-get update && \
 RUN apt-get install curl
 RUN useradd -ms '/bin/bash' docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
+RUN useradd -ms '/bin/bash' docker2 && echo "docker2:docker2" | chpasswd && adduser docker2 sudo
+
 RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 
 RUN echo "# arduino-cli.yaml \n\
@@ -25,3 +27,6 @@ RUN python -m pip install xmlformatter
 RUN python -m pip install ecdsa
 
 RUN arduino-cli core install Moteino:samd
+
+RUN getent passwd 1001
+
