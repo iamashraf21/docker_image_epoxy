@@ -15,12 +15,13 @@ RUN ls -lRh /home/docker
 
 USER docker
 
-#RUN echo "# arduino-cli.yaml \n\
-#board_manager: \n\
-#  additional_urls: \n\
-#    - https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json" > /home/docker/arduino-cli.yaml
+RUN echo "# arduino-cli.yaml \n\
+board_manager: \n\
+  additional_urls: \n\
+    - https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json" > /home/docker/arduino-cli.yaml
 
-RUN arduino-cli core update-index --additional-urls "https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json"
+#RUN arduino-cli core update-index --additional-urls "https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json"
+RUN cd /home/docker && arduino-cli core update-index 
 #RUN chown -R docker /home/docker
 WORKDIR /home/docker
 
