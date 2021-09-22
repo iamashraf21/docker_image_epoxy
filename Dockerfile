@@ -7,6 +7,8 @@ RUN apt-get update && \
 RUN apt-get install curl
 RUN useradd -ms '/bin/bash' -u 1001 docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
+RUN usermod -a -G dialout docker
+
 RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 
 RUN ls -lRh /home/docker
@@ -19,7 +21,6 @@ USER docker
 #    - https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json" > /home/docker/arduino-cli.yaml
 
 RUN arduino-cli core update-index --additional-urls "https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json"
-RUN usermod -a -G dialout docker
 #RUN chown -R docker /home/docker
 WORKDIR /home/docker
 
