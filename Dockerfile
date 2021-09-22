@@ -3,15 +3,14 @@ FROM ubuntu:latest
 FROM python:3
 
 RUN apt-get update && \
-      apt-get -y install sudo
+      apt-get -y install sudo \
+      apt-get install make
 RUN apt-get install curl
 RUN useradd -ms '/bin/bash' -u 1001 docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 RUN usermod -a -G dialout docker
 
 RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
-
-RUN ls -lRh /home/docker
 
 USER docker
 
@@ -30,8 +29,6 @@ RUN python -m pip install xmlformatter
 RUN python -m pip install ecdsa
 
 RUN arduino-cli core install Moteino:samd
-
-RUN ls -lRh /home/docker
 
 USER root
 
