@@ -15,9 +15,9 @@ RUN apt-get update && \
 #USER docker
 
 #RUN echo "# arduino-cli.yaml \n\
-board_manager: \n\
-  additional_urls: \n\
-    - https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json" > /home/docker/arduino-cli.yaml
+#board_manager: \n\
+#  additional_urls: \n\
+#    - https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json" > /home/docker/arduino-cli.yaml
 
 #RUN arduino-cli core update-index --additional-urls "https://lowpowerlab.github.io/MoteinoCore/package_LowPowerLab_index.json"
 #RUN cd /home/docker && arduino-cli core update-index 
