@@ -4,7 +4,7 @@ FROM python:3
 
 RUN apt-get update && \
       apt-get -y install sudo && \
-      apt-get install make
+      apt-get install gdb
 #RUN apt-get install curl
 #RUN useradd -ms '/bin/bash' -u 1001 docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
